@@ -3,7 +3,7 @@
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angularHebrewGreekLatin2App'));
+  beforeEach(module('angularHebrewGreekLatinApp'));
 
   var AboutCtrl,
     scope;

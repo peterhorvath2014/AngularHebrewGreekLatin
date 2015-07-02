@@ -11,9 +11,17 @@ angular.module('angularHebrewGreekLatinApp')
     .controller('MainCtrl', function ($scope, $sanitize, $sce, $log) {
         $scope.tinymceOptions = {
             menubar: "false",
-            toolbar: "newdocument | undo redo | bold italic | alignleft aligncenter alignright alignjustify | subscript superscript | fullscreen",
+            toolbar: "newdocument | styleselect | undo redo | bold italic | alignleft aligncenter alignright alignjustify | subscript superscript | fullscreen",
             height: "300px",
-            cleanup: "true"
+            style_formats: [
+                {
+                    title: 'Görög (SPIonic)',
+                    inline: 'span',
+                    styles: {
+                        'font-family': 'SPIonic'
+                    }
+                }
+            ]
         };
         $scope.toTrusted = function (htmlCode) {
             return $sce.trustAsHtml(htmlCode);
