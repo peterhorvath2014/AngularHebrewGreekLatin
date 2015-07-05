@@ -22,6 +22,21 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Karakterkészlet tesztelő</a>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
     <div class="container">
         <div ng-view=""></div>
     </div>
@@ -38,6 +53,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css" />
     <script src="bower_components/tinymce-dist/tinymce.min.js"></script>
     <script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
     <!-- endbower -->
@@ -45,8 +62,8 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/main/mainfactory.js"></script>
+    <script src="scripts/main/main.js"></script>
     <!-- endbuild -->
 </body>
 

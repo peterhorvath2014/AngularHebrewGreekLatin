@@ -1,0 +1,63 @@
+<div class="container-fluid form-group">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body text-right row">
+                    <div class="col-lg-6">
+                        <input type="text" class="form-control" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés a 11234 rekordból'" ng-model="title">
+                    </div>
+                    <div class="col-lg-6">
+
+                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-success':title}" ng-disabled='!title' ng-click="saveText(tinyText, true)"><span class="glyphicon glyphicon-floppy-save"></span> Mentés jóként</button>
+                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-danger':title}" ng-disabled='!title' ng-click="saveText(tinyText, false)"><span class="glyphicon glyphicon-floppy-save"></span> Mentés javítandóként</button>
+                        <button class="btn btn-warning" ng-click="resetForm()"><span class="glyphicon glyphicon-refresh"></span> Beviteli mező törlése</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div ui-tinymce="tinymceOptions" ng-model="tinyText"></div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default panel-body" ng-bind-html="toTrusted(tinyText)">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Elmentett szövegek</h3>
+            <div class="panel" ng-repeat="text in savedTexts" ng-class="{'panel-success':text.good, 'panel-danger':!text.good}">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel-title">{{text.title}}</div>
+                        </div>
+                        <div class="col-lg-6 text-right">
+                            <button type="button" class="btn btn-success" ng-click="loadTextIntoWorkingArea(text)">
+                                <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Betöltés
+                            </button>
+                            <button type="button" class="btn btn-danger" ng-click="removeTextFromDb(text._id)">
+                                <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span> Törlés
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" ng-bind-html="toTrusted(text.msg)"></div>
+            </div>
+        </div>
+
+        <section ng-show="false">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Generált html kód {{tinyText}}
+                </div>
+            </div>
+        </section>
+
+
+    </div>

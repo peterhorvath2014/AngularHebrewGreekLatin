@@ -17,12 +17,13 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.tinymce'
+    'ui.tinymce',
+    'angular-loading-bar'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'scripts/main/main.html',
         controller: 'MainCtrl'
       })
       .otherwise({

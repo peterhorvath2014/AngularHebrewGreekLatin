@@ -11,10 +11,11 @@
     "angular-route": "^1.3.0",
     "angular-sanitize": "^1.3.0",
     "angular-touch": "^1.3.0",
-	"angular-ui-tinymce": "latest"
+    "angular-ui-tinymce": "latest"
   },
   "devDependencies": {
-    "angular-mocks": "^1.3.0"
+    "angular-mocks": "^1.3.0",
+    "angular-loading-bar": "~0.8.0"
   },
   "appPath": "app",
   "moduleName": "angularHebrewGreekLatinApp"
