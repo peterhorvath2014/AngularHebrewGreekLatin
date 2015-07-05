@@ -31,33 +31,37 @@
     <div class="row">
         <div class="col-lg-12">
             <h3>Elmentett szövegek</h3>
-            <div class="panel" ng-repeat="text in savedTexts" ng-class="{'panel-success':text.good, 'panel-danger':!text.good}">
-                <div class="panel-heading ">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="panel-title">{{text.title}}</div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                            <button type="button" class="btn btn-success" ng-click="loadTextIntoWorkingArea(text)">
-                                <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Betöltés
-                            </button>
-                            <button type="button" class="btn btn-danger" ng-click="removeTextFromDb(text._id)">
-                                <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span> Törlés
-                            </button>
-                        </div>
+        </div>
+    </div>
+    <div class="row" ng-repeat="text in savedTexts">
+        <div class="panel" ng-class="{'panel-success':text.good, 'panel-danger':!text.good}">
+
+            <div class="panel-heading ">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel-title">{{text.title}}</div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <button type="button" class="btn btn-success" ng-click="loadTextIntoWorkingArea(text)">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Betöltés
+                        </button>
+                        <button type="button" class="btn btn-danger" ng-click="removeTextFromDb(text._id)">
+                            <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span> Törlés
+                        </button>
                     </div>
                 </div>
-                <div class="panel-body" ng-bind-html="toTrusted(text.msg)"></div>
+            </div>
+            <div class="panel-body" ng-bind-html="toTrusted(text.msg)"></div>
+        </div>
+    </div>
+
+    <section ng-show="false">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Generált html kód {{tinyText}}
             </div>
         </div>
-
-        <section ng-show="false">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    Generált html kód {{tinyText}}
-                </div>
-            </div>
-        </section>
+    </section>
 
 
-    </div>
+</div>

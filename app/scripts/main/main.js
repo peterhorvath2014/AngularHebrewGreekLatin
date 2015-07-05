@@ -10,9 +10,9 @@
 angular.module('angularHebrewGreekLatinApp')
     .controller('MainCtrl', function($scope, $sanitize, $sce, $log, MainFactory) {
         $scope.tinymceOptions = {
-            menubar: "false",
-            toolbar: "styleselect | undo redo | bold italic | alignleft aligncenter alignright alignjustify | subscript superscript | removeformat | fullscreen",
-            height: "300px",
+            menubar: 'false',
+            toolbar: 'styleselect | undo redo | bold italic | alignleft aligncenter alignright alignjustify | subscript superscript | removeformat | fullscreen',
+            height: '300px',
             style_formats: [{
                 title: 'Times New Roman',
                 block: 'p',
@@ -49,16 +49,11 @@ angular.module('angularHebrewGreekLatinApp')
         };
         $scope.toTrusted = function(htmlCode) {
             return $sce.trustAsHtml(htmlCode);
-        }
+        };
         $scope.emailNotification = function() {
-            var link = "mailto:peter.horvath.2005@gmail.com?subject=Karakter megjelenítés nem működik&body=" + $scope.tinyText;
+            var link = 'mailto:peter.horvath.2005@gmail.com?subject=Karakter megjelenítés nem működik&body=' + $scope.tinyText;
             window.location.href = link;
         };
-
-
-
-        refreshSavedTexts();
-
         function refreshSavedTexts() {
             var promise = MainFactory.getSavedTexts();
             promise.then(function(data) {
@@ -68,10 +63,10 @@ angular.module('angularHebrewGreekLatinApp')
 
             });
         }
-        
+        refreshSavedTexts();
         function resetForm() {
-            $scope.tinyText = "";
-            $scope.title = "";
+            $scope.tinyText = '';
+            $scope.title = '';
             $scope.id = undefined;
         }
 
@@ -79,7 +74,7 @@ angular.module('angularHebrewGreekLatinApp')
             $scope.tinyText = text.msg;
             $scope.title = text.title;
             $scope.id = text._id;
-        }
+        };
         $scope.removeTextFromDb = function(id) {
             var promise = MainFactory.deleteText(id);
             promise.then(function(data) {
@@ -87,7 +82,7 @@ angular.module('angularHebrewGreekLatinApp')
             }, function(error) {
 
             });
-        }
+        };
         $scope.saveText = function(text, good) {
             var promise;
             if ($scope.id) {
@@ -101,10 +96,10 @@ angular.module('angularHebrewGreekLatinApp')
             }, function(error) {
 
             });
-        }
+        };
         
         $scope.resetForm = function() {
             resetForm();
-        }
+        };
 
     });

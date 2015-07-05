@@ -20,7 +20,7 @@ angular
     'ui.tinymce',
     'angular-loading-bar'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'scripts/main/main.html',
