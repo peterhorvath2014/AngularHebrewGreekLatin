@@ -9,9 +9,9 @@
                     </div>
                     <div class="col-lg-6">
 
-                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-success':title}" ng-disabled='!title' ng-click="saveText(tinyText, true)"><span class="glyphicon glyphicon-floppy-save"></span> Mentés jóként</button>
-                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-danger':title}" ng-disabled='!title' ng-click="saveText(tinyText, false)"><span class="glyphicon glyphicon-floppy-save"></span> Mentés javítandóként</button>
-                        <button class="btn btn-warning" ng-click="resetForm()"><span class="glyphicon glyphicon-refresh"></span> Beviteli mező törlése</button>
+                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-success':title}" ng-disabled='!title' ng-click="saveText(tinyText, true)"><span class="glyphicon glyphicon-floppy-save"></span> <span ng-if="id">Mentés jó(felülírás)</span><span ng-if="!id">Mentés jó(új)</span></button>
+                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-danger':title}" ng-disabled='!title' ng-click="saveText(tinyText, false)"><span class="glyphicon glyphicon-floppy-save"></span> <span ng-if="id">Mentés javítandó(felülírás)</span><span ng-if="!id">Mentés javítandó(új)</span></button>
+                        <button class="btn btn-warning" ng-click="resetForm()"><span class="glyphicon glyphicon-refresh"></span> Mezők törlése</button>
                     </div>
                 </div>
             </div>
