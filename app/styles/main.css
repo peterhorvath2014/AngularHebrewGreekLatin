@@ -30,6 +30,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Samarit';
+    src: url('../fonts/SAMARIT.eot');
+    src: local('☺'), url('../fonts/SAMARIT.woff') format('woff'), url('../fonts/SAMARIT.ttf') format('truetype'), url('../fonts/SAMARIT.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

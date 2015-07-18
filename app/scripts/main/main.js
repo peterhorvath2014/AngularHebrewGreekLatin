@@ -45,6 +45,12 @@ angular.module('angularHebrewGreekLatinApp')
                 styles: {
                     'font-family': 'Coptic',
                 }
+            }, {
+                title: 'Samarit',
+                block: 'p',
+                styles: {
+                    'font-family': 'Samarit',
+                }
             }]
         };
         $scope.toTrusted = function(htmlCode) {
