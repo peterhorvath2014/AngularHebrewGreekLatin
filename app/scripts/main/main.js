@@ -26,7 +26,7 @@ angular.module('angularHebrewGreekLatinApp')
                     'font-family': 'SPIonic',
                 }
             }, {
-                title: '(Bwhebb) - סט גופן עברית',
+                title: '(SBL Hbrw) - סט גופן עברית',
                 block: 'p',
                 styles: {
                     'font-family': 'Hebrew',
@@ -50,6 +50,8 @@ angular.module('angularHebrewGreekLatinApp')
                 block: 'p',
                 styles: {
                     'font-family': 'Samarit',
+                    'direction': 'rtl',
+                    'text-align': 'right'
                 }
             }]
         };
@@ -73,12 +75,14 @@ angular.module('angularHebrewGreekLatinApp')
         function resetForm() {
             $scope.tinyText = '';
             $scope.title = '';
+            $scope.entity_id = '';
             $scope.id = undefined;
         }
 
         $scope.loadTextIntoWorkingArea = function(text) {
             $scope.tinyText = text.msg;
             $scope.title = text.title;
+            $scope.entity_id = text.entity_id;
             $scope.id = text._id;
         };
         $scope.removeTextFromDb = function(id) {
@@ -92,9 +96,9 @@ angular.module('angularHebrewGreekLatinApp')
         $scope.saveText = function(text, good) {
             var promise;
             if ($scope.id) {
-                promise = MainFactory.updateText(text, good, $scope.title, $scope.id);
+                promise = MainFactory.updateText(text, good, $scope.title, $scope.entity_id, $scope.id);
             } else {
-                promise = MainFactory.insertNewText(text, good, $scope.title);
+                promise = MainFactory.insertNewText(text, good, $scope.title, $scope.entity_id);
             }
             promise.then(function(data) {
                 resetForm();

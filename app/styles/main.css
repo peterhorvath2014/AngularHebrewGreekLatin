@@ -8,8 +8,8 @@
 
 @font-face {
     font-family: 'Hebrew';
-    src: url('../fonts/Bwhebb.eot');
-    src: local('☺'), url('../fonts/Bwhebb.woff') format('woff'), url('../fonts/Bwhebb.ttf') format('truetype'), url('../fonts/Bwhebb.svg') format('svg');
+    src: url('../fonts/SBL_Hbrw.eot');
+    src: local('☺'), url('../fonts/SBL_Hbrw.woff') format('woff'), url('../fonts/SBL_Hbrw.ttf') format('truetype'), url('../fonts/SBL_Hbrw.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }

@@ -5,7 +5,8 @@
             <div class="panel panel-default">
                 <div class="panel-body text-right row">
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés a 11234 rekordból'" ng-model="title">
+                        <input type="text" class="form-control" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés'" ng-model="title">
+                        <input type="text" class="form-control" placeholder="Rekordszám" ng-model="entity_id">
                     </div>
                     <div class="col-lg-6">
 
@@ -39,7 +40,7 @@
             <div class="panel-heading ">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="panel-title">{{text.title}}</div>
+                        <div class="panel-title"><a href="http://iaa.bibl.u-szeged.hu/index.php?page=browse&entry_id={{text.entity_id}}" target="_about">{{text.title}} ({{text.entity_id}})</a></div>
                     </div>
                     <div class="col-lg-6 text-right">
                         <button type="button" class="btn btn-success" ng-click="loadTextIntoWorkingArea(text)">
