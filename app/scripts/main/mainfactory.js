@@ -26,15 +26,12 @@ angular.module('angularHebrewGreekLatinApp')
                         return $q.reject(response.data);
                     });
             },
-            insertNewText: function(text, good, title, entity_id) {
+            insertNewText: function(tester) {
                 return $http({
                     url: 'https://api.mongolab.com/api/1/databases/iaa/collections/text',
                     method: 'POST',
                     data: {
-                        msg: text,
-                        good: good,
-                        title: title,
-                        entity_id: entity_id
+                        tester: tester
                     },
                     params: {
                         'apiKey': 'rLXW_SYqupDY0XvVv50ge8CVYUgrsMRZ'
@@ -79,16 +76,13 @@ angular.module('angularHebrewGreekLatinApp')
                         return $q.reject(response.data);
                     });
             },
-            updateText: function(text, good, title, entity_id, id) {
-                $log.debug(id);
+            updateText: function(tester, id) {
+                $log.debug(tester._id);
                 return $http({
                     url: 'https://api.mongolab.com/api/1/databases/iaa/collections/text/' + id.$oid,
                     method: 'PUT',
                     data: {
-                        msg: text,
-                        good: good,
-                        title: title,
-                        entity_id: entity_id
+                        tester: tester
                     },
                     params: {
                         'apiKey': 'rLXW_SYqupDY0XvVv50ge8CVYUgrsMRZ'

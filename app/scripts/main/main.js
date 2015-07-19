@@ -58,10 +58,8 @@ angular.module('angularHebrewGreekLatinApp')
         $scope.toTrusted = function(htmlCode) {
             return $sce.trustAsHtml(htmlCode);
         };
-        $scope.emailNotification = function() {
-            var link = 'mailto:peter.horvath.2005@gmail.com?subject=Karakter megjelenítés nem működik&body=' + $scope.tinyText;
-            window.location.href = link;
-        };
+        $scope.defaultTester = $scope.tester;
+
         function refreshSavedTexts() {
             var promise = MainFactory.getSavedTexts();
             promise.then(function(data) {
@@ -72,18 +70,15 @@ angular.module('angularHebrewGreekLatinApp')
             });
         }
         refreshSavedTexts();
+
         function resetForm() {
-            $scope.tinyText = '';
-            $scope.title = '';
-            $scope.entity_id = '';
-            $scope.id = undefined;
+            $scope.tester = angular.copy($scope.defaultTester);
+            $scope._id = undefined;
         }
 
         $scope.loadTextIntoWorkingArea = function(text) {
-            $scope.tinyText = text.msg;
-            $scope.title = text.title;
-            $scope.entity_id = text.entity_id;
-            $scope.id = text._id;
+            $scope.tester = angular.copy(text.tester);
+            $scope._id = angular.copy(text._id);
         };
         $scope.removeTextFromDb = function(id) {
             var promise = MainFactory.deleteText(id);
@@ -95,10 +90,11 @@ angular.module('angularHebrewGreekLatinApp')
         };
         $scope.saveText = function(text, good) {
             var promise;
-            if ($scope.id) {
-                promise = MainFactory.updateText(text, good, $scope.title, $scope.entity_id, $scope.id);
-            } else {
-                promise = MainFactory.insertNewText(text, good, $scope.title, $scope.entity_id);
+            if ($scope._id) {
+                promise = MainFactory.updateText($scope.tester, $scope._id);
+            }
+            else {
+                promise = MainFactory.insertNewText($scope.tester);
             }
             promise.then(function(data) {
                 resetForm();
@@ -107,7 +103,7 @@ angular.module('angularHebrewGreekLatinApp')
 
             });
         };
-        
+
         $scope.resetForm = function() {
             resetForm();
         };

@@ -1,33 +1,35 @@
 <div class="container-fluid form-group">
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-body text-right row">
-                    <div class="col-lg-6">
-                        <input type="text" class="form-control" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés'" ng-model="title">
-                        <input type="text" class="form-control" placeholder="Rekordszám" ng-model="entity_id">
-                    </div>
-                    <div class="col-lg-6">
-
-                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-success':title}" ng-disabled='!title' ng-click="saveText(tinyText, true)"><span class="glyphicon glyphicon-floppy-save"></span> <span ng-if="id">Mentés jó(felülírás)</span><span ng-if="!id">Mentés jó(új)</span></button>
-                        <button class="btn" ng-class="{'btn-disable disabled':!title, 'btn-danger':title}" ng-disabled='!title' ng-click="saveText(tinyText, false)"><span class="glyphicon glyphicon-floppy-save"></span> <span ng-if="id">Mentés javítandó(felülírás)</span><span ng-if="!id">Mentés javítandó(új)</span></button>
-                        <button class="btn btn-warning" ng-click="resetForm()"><span class="glyphicon glyphicon-refresh"></span> Mezők törlése</button>
+    <form novalidate class="simple-form">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body text-right row">
+                        <div class="col-lg-6 controls form-inline">
+                            <input type="text" class="form-control" size="53" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés')" ng-model="tester.title" required>
+                            <input type="text" class="form-control" size="5" placeholder="Rekord" ng-model="tester.entity_id">
+                            <a href="http://iaa.bibl.u-szeged.hu/index.php?page=browse&entry_id={{entity_id}}" target="_about" ng-show="tester.entity_id"><span class="glyphicon glyphicon-hand-right"></span> {{tester.entity_id}}</a>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="btn" ng-class="{'btn-disable disabled':!tester.title, 'btn-success':tester.title}" ng-disabled='!tester.title' ng-click="tester.good=true; saveText()"><span class="glyphicon glyphicon-floppy-save"></span> <span ng-if="id">Mentés jó(felülírás)</span><span ng-if="!id">Mentés jó(új)</span></button>
+                            <button class="btn" ng-class="{'btn-disable disabled':!tester.title, 'btn-danger':tester.title}" ng-disabled='!tester.title' ng-click="tester.good=false; saveText()"><span class="glyphicon glyphicon-floppy-save"></span> <span ng-if="id">Mentés javítandó(felülírás)</span><span ng-if="!id">Mentés javítandó(új)</span></button>
+                            <button class="btn btn-warning" ng-click="resetForm()"><span class="glyphicon glyphicon-refresh"></span> Mezők törlése</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div ui-tinymce="tinymceOptions" ng-model="tinyText"></div>
-        </div>
-        <div class="col-lg-6">
-            <div class="panel panel-default panel-body" ng-bind-html="toTrusted(tinyText)">
+        <div class="row">
+            <div class="col-lg-6">
+                <div ui-tinymce="tinymceOptions" ng-model="tester.tinyText"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default panel-body" ng-bind-html="toTrusted(tester.tinyText)">
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
     <div class="row">
         <div class="col-lg-12">
@@ -35,12 +37,12 @@
         </div>
     </div>
     <div class="row" ng-repeat="text in savedTexts">
-        <div class="panel" ng-class="{'panel-success':text.good, 'panel-danger':!text.good}">
+        <div class="panel" ng-class="{'panel-success':text.tester.good, 'panel-danger':!text.tester.good}">
 
             <div class="panel-heading ">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="panel-title"><a href="http://iaa.bibl.u-szeged.hu/index.php?page=browse&entry_id={{text.entity_id}}" target="_about">{{text.title}} ({{text.entity_id}})</a></div>
+                        <div class="panel-title">{{text.tester.title}} <a href="http://iaa.bibl.u-szeged.hu/index.php?page=browse&entry_id={{text.tester.entity_id}}" target="_about" ng-show="text.tester.entity_id"><span class="glyphicon glyphicon-hand-right"></span> ({{text.tester.entity_id}})</a></div>
                     </div>
                     <div class="col-lg-6 text-right">
                         <button type="button" class="btn btn-success" ng-click="loadTextIntoWorkingArea(text)">
@@ -52,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-body" ng-bind-html="toTrusted(text.msg)"></div>
+            <div class="panel-body" ng-bind-html="toTrusted(text.tester.tinyText)"></div>
         </div>
     </div>
 
