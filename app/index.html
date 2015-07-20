@@ -13,9 +13,8 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
 
@@ -38,16 +37,16 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li ng-show="user.authenticated"><a href="#" ua-logout> {{ user.first_name }} kilépés</a></li>
-                    <li><a ui-sref="login">Bejelentkezés</a></li>
-                    <li><a ui-sref="signup">Regisztráció</a></li>
+                    <li ng-show="user.authenticated"><a href="#" ua-logout>Kilépés</a></li>
+                    <li ng-hide="user.authenticated"><a ui-sref="login">Bejelentkezés</a></li>
+                    <li ng-hide="user.authenticated"><a ui-sref="signup">Regisztráció</a></li>
                     </li>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div ui-view></div>
     </div>
 

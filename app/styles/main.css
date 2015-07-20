@@ -141,3 +141,7 @@ body {
 .first-section {
     margin-top: 20px;
 }
+
+.grey {
+    color: #ddd;
+}

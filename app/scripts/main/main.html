@@ -5,9 +5,11 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body text-right row">
-                        <div class="col-lg-6 controls form-inline">
-                            <input type="text" class="form-control" size="53" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés')" ng-model="tester.title" required>
-                            <input type="text" class="form-control" size="5" placeholder="Rekord" ng-model="tester.entity_id">
+                        <div class="col-lg-5 controls form-inline">
+                            <input type="text" class="form-control" style="width:100%" placeholder="Mentéshez kötelező cím (pl.:  'Héber tesztelés')" ng-model="tester.title" required>
+                        </div>
+                        <div class="col-lg-1 controls form-inline">
+                            <input type="text" class="form-control" style="width:100%" placeholder="Rekord" ng-model="tester.entity_id">
                             <a href="http://iaa.bibl.u-szeged.hu/index.php?page=browse&entry_id={{entity_id}}" target="_about" ng-show="tester.entity_id"><span class="glyphicon glyphicon-hand-right"></span> {{tester.entity_id}}</a>
                         </div>
                         <div class="col-lg-6">
@@ -31,7 +33,13 @@
         </div>
     </form>
 
-    <div class="row">
+    <div class="row grey">
+        <div class="col-lg-12">
+            <h3>Adatbázisba mentendő kódolt szöveg</h3>
+        </div>
+    </div>
+
+    <div class="row grey">
         <div class="panel panel-default">
             <div class="panel-body">
                 {{tester.tinyText}}
