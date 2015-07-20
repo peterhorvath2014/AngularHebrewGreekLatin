@@ -8,20 +8,21 @@
  * Controller of the angularHebrewGreekLatinApp
  */
 angular.module('angularHebrewGreekLatinApp')
-    .controller('MainCtrl', function($scope, $sanitize, $sce, $log, MainFactory) {
+    .controller('MainCtrl', function($scope, $sanitize, $sce, $log, MainFactory, user) {
+        user.init({ appId: '55acf70150845' });
         $scope.tinymceOptions = {
             menubar: 'false',
             toolbar: 'styleselect | undo redo | bold italic | alignleft aligncenter alignright alignjustify | subscript superscript | removeformat | fullscreen',
             height: '300px',
             style_formats: [{
-                title: 'Times New Roman',
-                block: 'p',
-                styles: {
-                    'font-family': 'Times New Roman',
-                }
-            }, {
                 title: 'Ελληνική γραμματοσειρά',
                 block: 'p',
+                styles: {
+                    'font-family': 'SPIonic',
+                }
+            }, {
+                title: '**Ελληνική γραμματοσειρά**',
+                inline: 'span',
                 styles: {
                     'font-family': 'SPIonic',
                 }
@@ -34,20 +35,48 @@ angular.module('angularHebrewGreekLatinApp')
                     'text-align': 'right'
                 }
             }, {
+                title: '**(SBL Hbrw) - סט גופן עברית**',
+                inline: 'span',
+                styles: {
+                    'font-family': 'Hebrew',
+                    'direction': 'rtl',
+                    'text-align': 'right'
+                }
+            }, {
                 title: 'Geez',
                 block: 'p',
                 styles: {
                     'font-family': 'Geez',
                 }
             }, {
+                title: '**Geez**',
+                inline: 'span',
+                styles: {
+                    'font-family': 'Geez',
+                }
+            }, {
                 title: 'Coptic',
-                block: 'p',
+                 block: 'p',
+                styles: {
+                    'font-family': 'Coptic',
+                }
+            }, {
+                title: '??Coptic??',
+                inline: 'span',
                 styles: {
                     'font-family': 'Coptic',
                 }
             }, {
                 title: 'Samarit',
                 block: 'p',
+                styles: {
+                    'font-family': 'Samarit',
+                    'direction': 'rtl',
+                    'text-align': 'right'
+                }
+            }, {
+                title: '**Samarit**',
+                inline: 'span',
                 styles: {
                     'font-family': 'Samarit',
                     'direction': 'rtl',

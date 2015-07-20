@@ -32,10 +32,19 @@
     </form>
 
     <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{tester.tinyText}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-lg-12">
             <h3>Elmentett szövegek</h3>
         </div>
     </div>
+
     <div class="row" ng-repeat="text in savedTexts">
         <div class="panel" ng-class="{'panel-success':text.tester.good, 'panel-danger':!text.tester.good}">
 
@@ -58,13 +67,7 @@
         </div>
     </div>
 
-    <section ng-show="false">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                Generált html kód {{tinyText}}
-            </div>
-        </div>
-    </section>
+
 
 
 </div>

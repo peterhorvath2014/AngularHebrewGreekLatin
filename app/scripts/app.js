@@ -14,19 +14,32 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
     'ui.tinymce',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'UserApp'
   ])
-  .config(function($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/home");
+    $stateProvider
+      .state('home', {
+        url: "/home",
         templateUrl: 'scripts/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        data: {public: true}
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+       .state('login', {
+        url: "/login",
+        templateUrl: 'scripts/auth/login.html',
+        controller: 'AuthCtrl',
+        data: {login: true}
+      })
+      .state('signup', {
+        url: "/signup",
+        templateUrl: 'scripts/auth/signup.html',
+        controller: 'AuthCtrl',
+        data: {login: true}
+      })
   });
