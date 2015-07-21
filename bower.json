@@ -16,7 +16,8 @@
     "angular-loading-bar": "~0.8.0",
     "angular-filter": "~0.5.4",
     "userapp-angular": "~2.0.4",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "ngCordova": "~0.1.17-alpha"
   },
   "appPath": "app",
   "moduleName": "angularHebrewGreekLatinApp"

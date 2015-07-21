@@ -19,7 +19,8 @@ angular
     'ngTouch',
     'ui.tinymce',
     'angular-loading-bar',
-    'UserApp'
+    'UserApp',
+    'ngCordova'
   ])
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
@@ -41,5 +42,11 @@ angular
         templateUrl: 'scripts/auth/signup.html',
         controller: 'AuthCtrl',
         data: {login: true}
+      })
+      .state('admin', {
+        url: "/admin",
+        templateUrl: 'scripts/admin/admin.html',
+        controller: 'AdminCtrl',
+        data: {hasPermission: 'admin'}
       })
   });

@@ -2,13 +2,12 @@
 
 /**
  * @ngdoc function
- * @name angularHebrewGreekLatinApp.controller:AuthCtrl
+ * @name angularHebrewGreekLatinApp.controller:AdminCtrl
  * @description
- * # AuthCtrl
+ * # AdminCtrl
  * Controller of the angularHebrewGreekLatinApp
  */
 angular.module('angularHebrewGreekLatinApp')
-    .controller('AuthCtrl', function($scope, $sanitize, $sce, $log, user) {
+    .controller('AdminCtrl', function($scope, $sanitize, $sce, $log, user) {
         user.init({ appId: '55acf70150845' });
-        
     });

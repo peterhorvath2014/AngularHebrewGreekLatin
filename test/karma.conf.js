@@ -40,6 +40,7 @@ module.exports = function(config) {
       'bower_components/userapp/userapp.client.js',
       'bower_components/userapp-angular/angularjs.userapp.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/ngCordova/dist/ng-cordova.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
