@@ -29,24 +29,35 @@ angular
         url: "/home",
         templateUrl: 'scripts/main/main.html',
         controller: 'MainCtrl',
-        data: {public: true}
+        data: {
+          public: true
+        }
       })
-       .state('login', {
+      .state('login', {
         url: "/login",
         templateUrl: 'scripts/auth/login.html',
         controller: 'AuthCtrl',
-        data: {login: true}
+        data: {
+          login: true
+        }
       })
       .state('signup', {
         url: "/signup",
         templateUrl: 'scripts/auth/signup.html',
         controller: 'AuthCtrl',
-        data: {login: true}
+        data: {
+          login: true
+        }
       })
       .state('admin', {
         url: "/admin",
         templateUrl: 'scripts/admin/admin.html',
         controller: 'AdminCtrl',
-        data: {hasPermission: 'admin'}
+        data: {
+          hasPermission: 'admin'
+        }
       })
-  });
+  })
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+  }]);
